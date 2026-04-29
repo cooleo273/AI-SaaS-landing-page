@@ -128,7 +128,7 @@ export function Hero() {
             </div>
           </div>
 
-          <div className="relative">
+          <div className="relative mx-auto w-full max-w-[42rem] lg:mx-0 lg:justify-self-end">
             <motion.div
               initial={{ opacity: 0, y: 18 }}
               animate={{ opacity: 1, y: 0 }}
@@ -137,9 +137,9 @@ export function Hero() {
             >
               <div className="pointer-events-none absolute -inset-6 rounded-[2.25rem] bg-gradient-to-tr from-indigo-500/20 via-fuchsia-500/12 to-cyan-400/10 blur-2xl" />
 
-              <div className="relative grid gap-4 rounded-[2rem] bg-white/55 p-4 ring-1 ring-zinc-200/70 shadow-lg shadow-zinc-950/10 backdrop-blur-xl sm:p-5">
-                <div className="grid gap-4 lg:grid-cols-2">
-                  <Card className="relative overflow-hidden bg-white/60">
+              <div className="relative grid gap-4 rounded-[2rem] bg-white/55 p-4 ring-1 ring-zinc-200/70 shadow-xl shadow-zinc-950/10 backdrop-blur-xl sm:p-5">
+                <div className="grid gap-5 lg:grid-cols-2 lg:gap-6">
+                  <Card className="relative z-10 overflow-hidden bg-white/60">
                     <div className="flex items-center justify-between border-b border-zinc-200/70 bg-white/60 px-5 py-4">
                       <div className="flex items-center gap-2">
                         <div className="h-2.5 w-2.5 rounded-full bg-zinc-300" />
@@ -181,14 +181,18 @@ export function Hero() {
                           <motion.div
                             key={item.label}
                             whileHover={{ y: -3 }}
-                            transition={{ type: 'spring', stiffness: 350, damping: 26 }}
+                            transition={{
+                              type: 'spring',
+                              stiffness: 360,
+                              damping: 28,
+                            }}
                             className="group rounded-2xl bg-white px-3 py-3 text-left ring-1 ring-zinc-200/70 shadow-sm"
                           >
                             <item.icon
                               className="h-4 w-4 text-zinc-700 transition group-hover:text-indigo-600"
                               aria-hidden="true"
                             />
-                            <div className="mt-2 text-xs font-medium text-zinc-900">
+                            <div className="mt-2 text-[11px] font-medium leading-4 text-zinc-900">
                               {item.label}
                             </div>
                           </motion.div>
@@ -197,10 +201,11 @@ export function Hero() {
                     </div>
                   </Card>
 
-                  <div className="grid gap-4">
-                    <Card className="relative overflow-hidden bg-zinc-900 text-white ring-zinc-800">
-                      <div className="pointer-events-none absolute -top-16 left-1/2 h-40 w-40 -translate-x-1/2 rounded-full bg-gradient-to-tr from-indigo-500/45 via-fuchsia-500/25 to-cyan-400/15 blur-2xl" />
-                      <div className="relative grid gap-2 p-5">
+                  <div className="relative z-0 grid gap-4">
+                    <div className="rounded-2xl bg-gradient-to-tr from-indigo-500/25 via-fuchsia-500/15 to-cyan-400/10 p-px shadow-md shadow-zinc-950/10">
+                      <Card className="relative overflow-hidden bg-zinc-950 text-white ring-white/10">
+                        <div className="pointer-events-none absolute -top-16 left-1/2 h-40 w-40 -translate-x-1/2 rounded-full bg-gradient-to-tr from-indigo-500/55 via-fuchsia-500/25 to-cyan-400/15 blur-2xl" />
+                        <div className="relative grid gap-2 p-5">
                         <div className="flex items-center justify-between">
                           <div className="inline-flex items-center gap-2 text-sm font-medium">
                             <Sparkles className="h-4 w-4 text-indigo-300" />
@@ -218,14 +223,15 @@ export function Hero() {
                           <span className="h-1.5 w-1.5 rounded-full bg-emerald-400" />
                           Private processing
                         </div>
-                      </div>
-                    </Card>
+                        </div>
+                      </Card>
+                    </div>
 
                     <div className="grid grid-cols-2 gap-4">
-                      {[
-                        { label: 'Formats', value: 'PDF, MP4, XLSX' },
-                        { label: 'Detection', value: 'Auto • 100+ langs' },
-                      ].map((m) => (
+                        {[
+                          { label: 'Formats', value: 'PDF, MP4, XLSX' },
+                          { label: 'Detection', value: 'Auto • 100+ languages' },
+                        ].map((m) => (
                         <Card key={m.label} className="p-5">
                           <div className="text-xs font-medium text-zinc-500">
                             {m.label}
